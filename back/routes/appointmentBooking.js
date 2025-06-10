@@ -33,11 +33,12 @@ router.post('/', async (req, res) => {
         deparment: department,
         date: new Date(date),
         time: time,
-        message: message
+        message: message,
+        paid: 'YES',
       }
     });
 
-    return res.status(201).json({ success: true, appointment });
+    return res.status(201).json({ success: true, appointment, id: user.id },);
   } catch (error) {
     console.error('Appointment creation error:', error);
     return res.status(500).json({ error: 'Internal server error' });

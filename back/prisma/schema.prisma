@@ -26,6 +26,7 @@ model Appointment {
   date        DateTime
   time        String
   message     String?
+  paid        paidStatus       @default(NO)
   stats       AppoinmentStatus @default(NEW)
   notes       String?
   review      String?
@@ -41,4 +42,9 @@ enum AppoinmentStatus {
   CONFIRMED
   CANCELLED
   COMPLETED
+}
+
+enum paidStatus {
+  YES
+  NO
 }
