@@ -28,7 +28,7 @@ export default function AppointmentForm() {
 
     try {
       const res = await fetch(
-        `${process.env.NEXT_PUBLIC_API_BASE_URL}/appointment`,
+        `${process.env.NEXT_PUBLIC_API_BASE_URL}/appointmentBooking`,
         {
           method: "POST",
           headers: {

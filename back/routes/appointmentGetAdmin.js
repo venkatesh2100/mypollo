@@ -1,0 +1,50 @@
+import express from "express"
+import { PrismaClient } from "@prisma/client"
+import { verifyAdmin } from "../middlewares/verify.js"
+
+
+
+const router = express.Router();
+
+const prisma = new PrismaClient();
+
+router.get('/', verifyAdmin, async (req, res) => {
+  //HACK: Try to get the Oldest First order.
+  try {
+    const appointments = await prisma.appointment.findMany({
+      orderBy: { createdAt: 'asc' },
+    });
+    res.json(appointments);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'Server error' });
+  }
+});
+
+//HACK: NOw update the appointment.
+router.put('/:id', verifyAdmin, async (req, res) => {
+  const { id } = req.params;
+  const { stats, notes, review } = req.body;
+  console.log(id)
+  if (!stats && !notes && !review) {
+    return res.status(400).json({ error: "No update given" })
+  }
+
+  try {
+    const updated = await prisma.appointment.update({
+      where: { id },
+      data: {
+        ...(stats && { stats }),
+        ...(notes && { notes }),
+        ...(review && { review }),
+      }
+    })
+    res.json({ success: true, appointment: updated });
+  } catch (e) {
+    console.log(e);
+    res.status(500).josn({ error: "Failed to Update" })
+  }
+
+
+})
+export default router;

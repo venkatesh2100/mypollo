@@ -1,5 +1,4 @@
-//HACK:
-
+//
 generator client {
   provider = "prisma-client-js"
 }
