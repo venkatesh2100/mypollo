@@ -2,10 +2,7 @@ import express from "express"
 import { PrismaClient } from "@prisma/client"
 import { verifyAdmin } from "../middlewares/verify.js"
 
-
-
 const router = express.Router();
-
 const prisma = new PrismaClient();
 
 router.get('/', verifyAdmin, async (req, res) => {
@@ -22,7 +19,7 @@ router.get('/', verifyAdmin, async (req, res) => {
 });
 
 //HACK: NOw update the appointment.
-router.put('/:id', verifyAdmin, async (req, res) => {
+router.put('/:id', async (req, res) => {
   const { id } = req.params;
   const { stats, notes, review } = req.body;
   console.log(id)
@@ -44,7 +41,31 @@ router.put('/:id', verifyAdmin, async (req, res) => {
     console.log(e);
     res.status(500).josn({ error: "Failed to Update" })
   }
-
-
 })
+
+//HACK: New route for admin Content
+router.get('/stats', async (req, res) => {
+  try {
+    const paidUsers = await prisma.appointment.count({
+      where: { paid: "YES" }
+    });
+
+    const totalAppointments = await prisma.appointment.count();
+
+    const departments = await prisma.appointment.findMany({
+      distinct: ['deparment'],
+      select: { deparment: true }
+    });
+
+    res.json({
+      paidUsers,
+      totalAppointments,
+      departments: departments.map(d => d.deparment)
+    });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'Failed to load statistics' });
+  }
+});
+
 export default router;

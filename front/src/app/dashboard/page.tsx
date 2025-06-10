@@ -1,5 +1,6 @@
 "use client"
 import AdminAppointments from "@/components/AdminAppointments";
+import AdminContent from "@/components/AdminContent";
 import { useRouter } from "next/navigation"
 import { useEffect, useState } from "react";
 
@@ -33,6 +34,7 @@ export default function AdminDashboard() {
     <div>
 
       <div className="flex justify-center text-6xl">AdminDashboard</div>
+      <AdminContent />
       <AdminAppointments />
     </div>
   )

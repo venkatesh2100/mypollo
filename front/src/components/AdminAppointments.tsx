@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-
+import toast from 'react-hot-toast';
 interface Appointment {
   id: string;
   name: string;
@@ -14,6 +14,7 @@ interface Appointment {
   createdAt: string;
   notes?: string;
   review?: string;
+  paid: string;
 }
 
 export default function AdminAppointments() {
@@ -64,7 +65,6 @@ function AppointmentCard({ appointment }: { appointment: Appointment }) {
   const [notes, setNotes] = useState(appointment.notes || "");
   const [review, setReview] = useState(appointment.review || "");
   const [saving, setSaving] = useState(false);
-  const [saved, setSaved] = useState(false);
   //HACK: Geting Update the Appointment :LLOLL: easy
   const handleUpdate = async () => {
     setSaving(true);
@@ -79,8 +79,7 @@ function AppointmentCard({ appointment }: { appointment: Appointment }) {
       const data = await res.json();
       console.log(data)
       if (res.ok) {
-        setSaved(true);
-        setTimeout(() => setSaved(false), 2000);
+        toast.success('Appointment updated successfully!');
       } else {
         alert("Update failed: " + data.error);
       }
@@ -103,6 +102,7 @@ function AppointmentCard({ appointment }: { appointment: Appointment }) {
       <p><span className="font-medium">Department:</span> {appointment.deparment}</p>
       <p><span className="font-medium">Date:</span> {new Date(appointment.date).toLocaleDateString()}</p>
       <p><span className="font-medium">Time:</span> {appointment.time}</p>
+      <p><span className="font-medium">Paid:</span> {appointment.paid || "Nope"}</p>
       {appointment.message && <p><span className="font-medium">Message:</span> {appointment.message}</p>}
 
       <div className="mt-3 space-y-2">
@@ -142,7 +142,6 @@ function AppointmentCard({ appointment }: { appointment: Appointment }) {
           {saving ? "Saving..." : "Update Appointment"}
         </button>
 
-        {saved && <p className="text-green-600 text-sm mt-1">Saved successfully ✅</p>}
       </div>
     </div>
   );
