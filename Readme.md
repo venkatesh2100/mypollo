@@ -1,4 +1,4 @@
-# Mypollo - Fullstack Client Management System[Dr's.choice] 99.1 recommended.🧔🕶💎🥼🥽.
+# Mypollo - Fullstack Client Management [Dr's.choice] 99.1 recommended.🧔🕶💎🥼🥽.
 
 
 - I had attached all the env.example files to check whether the code is Running on local.
