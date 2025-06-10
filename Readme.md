@@ -10,5 +10,7 @@
 - desinged Login page.
 
 ### 2:
+- Add special secure to dashboard page Extra vefiy the user as Admin via cookies session
+- Build a Appoinment page form and route to push to DB.
+- Improve Zod valid and then Toaster for better animation.
 - 
-

@@ -2,8 +2,9 @@ import express from 'express';
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
 import { PrismaClient } from '@prisma/client';
+import cookieParser from 'cookie-parser';
 const prisma = new PrismaClient();
-const { sign } = jwt;
+const { sign, verify } = jwt;
 const router = express.Router();
 
 router.post('/login', async (req, res) => {
@@ -33,6 +34,19 @@ router.post('/login', async (req, res) => {
   } catch (error) {
     console.error('Login error:', error);
     return res.status(500).json({ message: 'Internal Server Error' });
+  }
+});
+//HACK: verify the admin via dashboard. {works well}
+router.get("/verify", (req, res) => {
+  const token = req.cookies.token;
+  console.log(req.cookies)
+  if (!token) return res.status(401).json({ message: "Unauthorized" });
+
+  try {
+    verify(token, process.env.JWT_SECRET);
+    res.json({ message: "Valid token" });
+  } catch {
+    res.status(403).json({ message: "Token invalid" });
   }
 });
 

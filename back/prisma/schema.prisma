@@ -1,4 +1,4 @@
-//
+//HACK:
 
 generator client {
   provider = "prisma-client-js"
@@ -10,9 +10,36 @@ datasource db {
 }
 
 model Admin {
-  id          Int     @id @default(autoincrement())
-  name        String  
-  email       String  @unique
-  phonenumber String? @unique
-  password    String
+  id           Int           @id @default(autoincrement())
+  name         String
+  email        String        @unique
+  phonenumber  String?       @unique
+  password     String
+  appointments Appointment[]
+}
+
+model Appointment {
+  id          String           @id @default(uuid())
+  name        String
+  email       String
+  phonenumber String
+  deparment   String
+  date        DateTime
+  time        String
+  message     String?
+  stats       AppoinmentStatus @default(NEW)
+  notes       String?
+  review      String?
+  createdAt   DateTime         @default(now())
+  updatedAt   DateTime         @updatedAt
+
+  adminId Int?
+  admin   Admin? @relation(fields: [adminId], references: [id])
+}
+
+enum AppoinmentStatus {
+  NEW
+  CONFIRMED
+  CANCELLED
+  COMPLETED
 }
