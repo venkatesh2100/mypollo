@@ -1,4 +1,4 @@
-# Mypollo - Fullstack Client Management [Dr's.choice] 99.1 recommended.🧔🕶💎🥼🥽.
+# Mypollo - Fullstack Client Management [Dr's.choice] 99.1 recommended.🧔🕶🥼🥽.
 
 
 - I had attached all the env.example files to check whether the code is Running on local.
@@ -8,7 +8,7 @@
 - updated the Schema for model Admin.
 - Fixed the Login system using Old Jwt approch.
 - desinged Login page.
-![Home](https://drive.google.com/file/d/1N-IvQGSj6wxcyo2qrSoJpGRes6S38x7T/view?usp=sharing)
+![Home](front/public/home.png)
 ### 2:
 - Add special secure to dashboard page Extra vefiy the user as Admin via cookies session
 - Build a Appoinment page form and route to push to DB.
@@ -24,9 +24,15 @@
 - Implement my Dummy webhook from my Paymmater Old Project and used those Dummy webhook for payment.[₹500 for Advance Booking ]
 
 - ReDesign the Admin page[Better order of Advance Booking Candites.]
-
+![admin](front/public/admin.png)
 ### 3:
-
 - Finishing Touch to the Fronted.
 - Add Few More BackRoutes get Information about Appoinments.
 - Done
+
+
+
+![mobile](front/public/mobile.png)
+
+
+congrats 👷🏼‍♂️🎉
