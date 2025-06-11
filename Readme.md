@@ -8,6 +8,7 @@
 - updated the Schema for model Admin.
 - Fixed the Login system using Old Jwt approch.
 - desinged Login page.
+![Home][https://drive.google.com/file/d/1N-IvQGSj6wxcyo2qrSoJpGRes6S38x7T/view?usp=sharing]
 ### 2:
 - Add special secure to dashboard page Extra vefiy the user as Admin via cookies session
 - Build a Appoinment page form and route to push to DB.
@@ -23,3 +24,9 @@
 - Implement my Dummy webhook from my Paymmater Old Project and used those Dummy webhook for payment.[₹500 for Advance Booking ]
 
 - ReDesign the Admin page[Better order of Advance Booking Candites.]
+
+### 3:
+
+- Finishing Touch to the Fronted.
+- Add Few More BackRoutes get Information about Appoinments.
+- Done

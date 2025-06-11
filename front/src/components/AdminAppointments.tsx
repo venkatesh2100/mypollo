@@ -41,8 +41,8 @@ export default function AdminAppointments() {
     fetchAppointments();
   }, []);
 
-  if (loading) return <p className="text-center mt-10">Loading...</p>;
-  if (authError) return <p className="text-center text-red-500 mt-10">{authError}</p>;
+  if (loading) return <p className="text-center h-[40vh] text-4xl text-gray-700 mt-10">Loading...</p>;
+  if (authError) return <p className="text-center  text-red-500 mt-10">{authError}</p>;
 
   return (
     <div className="max-w-6xl mx-auto px-4 py-6">
@@ -80,6 +80,7 @@ function AppointmentCard({ appointment }: { appointment: Appointment }) {
       console.log(data)
       if (res.ok) {
         toast.success('Appointment updated successfully!');
+        window.location.reload();
       } else {
         alert("Update failed: " + data.error);
       }

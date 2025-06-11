@@ -1,14 +1,44 @@
 "use client"
 import Image from 'next/image';
 import React from 'react';
-import { FaShoppingCart, FaUser } from 'react-icons/fa';
+import { FaUser, FaSignOutAlt, FaShoppingCart } from 'react-icons/fa';
 import Hamburger from './hambargur';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 
 export default function Navbar() {
   const [cartItems] = React.useState(3); // Example cart item count
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const router = useRouter();
   //HACK: Mypollo set 1 2 3 
+
+  // const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/appointmentGetAdmin/stats`, {
+  useEffect(() => {
+    const checkAuth = async () => {
+      try {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/verify`, { credentials: 'include' });
+        console.log(res)
+        if (res.ok) {
+          setIsAuthenticated(true);
+        } else {
+          setIsAuthenticated(false);
+        }
+      } catch (e) {
+        console.log(e)
+      }
+    };
+
+    checkAuth();
+  }, []);
+
+  const handleLogout = async () => {
+    await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/logout`, {
+      method: 'POST',
+      credentials: 'include',
+    });
+    window.location.reload();
+    setIsAuthenticated(false);
+  };
   return (
     <nav className="bg-white shadow-bottom-md sticky top-0 z-50 border-b border-gray-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -50,15 +80,23 @@ export default function Navbar() {
               )}
             </button>
 
-            <button onClick={() => router.push('/dashboard')} className="hidden sm:flex items-center gap-1 text-green-400 hover:bg-green-200 border border-green-900 px-4 py-2 rounded-md transition-colors focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
-              <span className="text-sm text-black">Admin Login</span>
-              <FaUser size={16} aria-hidden="true" />
-            </button>
+            <div>
+              {isAuthenticated ? (
+                <button
+                  onClick={handleLogout}
+                  className="p-2 rounded-full text-gray-600 hover:text-red-600 hover:bg-gray-100 transition-colors"
+                >
+                  <FaSignOutAlt size={20} aria-hidden="true" />
+                  <span className="sr-only">Logout</span>
+                </button>
+              ) : (
 
-            <button onClick={() => router.push('/dashboard')} className="sm:hidden p-2 rounded-full text-gray-600 hover:text-blue-600 hover:bg-gray-100 transition-colors">
-              <FaUser size={20} aria-hidden="true" />
-              <span className="sr-only">Admin Login</span>
-            </button>
+                <button onClick={() => router.push('/dashboard')} className="hidden sm:flex items-center gap-1 text-green-400 hover:bg-green-200 border border-green-900 px-4 py-2 rounded-md transition-colors focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+                  <span className="text-sm text-black">Admin Login</span>
+                  <FaUser size={16} aria-hidden="true" />
+                </button>
+              )}
+            </div>
           </div>
         </div>
       </div>

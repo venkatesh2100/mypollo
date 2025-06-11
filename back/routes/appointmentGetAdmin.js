@@ -49,7 +49,15 @@ router.get('/stats', async (req, res) => {
     const paidUsers = await prisma.appointment.count({
       where: { paid: "YES" }
     });
-
+    const NewAppointments = await prisma.appointment.count({
+      where: { stats: "NEW" }
+    });
+    const CompletedAppointments = await prisma.appointment.count({
+      where: { stats: "COMPLETED" }
+    });
+    const FailedAppointments = await prisma.appointment.count({
+      where: { stats: "CANCELLED" }
+    });
     const totalAppointments = await prisma.appointment.count();
 
     const departments = await prisma.appointment.findMany({
@@ -59,7 +67,10 @@ router.get('/stats', async (req, res) => {
 
     res.json({
       paidUsers,
+      CompletedAppointments,
+      FailedAppointments,
       totalAppointments,
+      NewAppointments,
       departments: departments.map(d => d.deparment)
     });
   } catch (err) {

@@ -9,21 +9,6 @@ const PayNow = ({ onClose, onPaymentSuccess }) => {
     setIsProcessing(true);
 
     try {
-      // const paymentResponse = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/appointmentGetAdmin/${appointment.id}`, {
-      //   method: 'POST',
-      //   headers: {
-      //     'Content-Type': 'application/json',
-      //   },
-      //   body: JSON.stringify({
-      //     amount: 500,
-      //     currency: 'Ruppe',
-      //     paymentMethod: 'card'
-      //   })
-      // });
-
-      // if (!paymentResponse.ok) {
-      //   throw new Error('Payment failed');
-      // }
 
       await new Promise(resolve => setTimeout(resolve, 1500));
 

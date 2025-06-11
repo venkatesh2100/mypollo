@@ -26,21 +26,21 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
+    <div className="flex items-center justify-center min-h-screen bg-gradient-to-b">
       <form
         onSubmit={LoginCheck}
-        className="bg-white shadow-lg rounded-lg p-8 w-full max-w-md"
+        className="bg-gray-200 shadow-lg border  rounded-lg p-8 w-full max-w-md backdrop-blur-sm"
       >
-        <h1 className="text-2xl font-bold mb-6 text-center text-gray-800">Login</h1>
+        <h1 className="text-2xl font-bold mb-6 text-center text-gray-800">  Login</h1>
 
-        <div className="mb-4">
+        <div className="mb-4 ">
           <input
             type="text"
             placeholder="Email or Phone Number"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full px-4 py-2 border border-gray-500 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
         </div>
 
@@ -51,7 +51,7 @@ export default function LoginPage() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full px-4 py-2 border border-gray-500 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
         </div>
 

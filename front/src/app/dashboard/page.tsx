@@ -1,6 +1,7 @@
 "use client"
 import AdminAppointments from "@/components/AdminAppointments";
 import AdminContent from "@/components/AdminContent";
+import Navbar from "@/components/Navbar";
 import { useRouter } from "next/navigation"
 import { useEffect, useState } from "react";
 
@@ -24,16 +25,16 @@ export default function AdminDashboard() {
     }).catch(() => router.push('/login'));
   }, [router])
 
-  if (!auth) {
-    return (
-      <div>Login Back.....</div>
-    )
-  }
+  // if (!auth) {
+  //   return (
+  //     <div>Login Back.....</div>
+  //   )
+  // }
 
   return (
     <div>
-
-      <div className="flex justify-center text-6xl">AdminDashboard</div>
+      <Navbar />
+      <div className="flex justify-center text-3xl sm:text-6xl">AdminDashboard</div>
       <AdminContent />
       <AdminAppointments />
     </div>
