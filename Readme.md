@@ -8,7 +8,7 @@
 - updated the Schema for model Admin.
 - Fixed the Login system using Old Jwt approch.
 - desinged Login page.
-![Home][https://drive.google.com/file/d/1N-IvQGSj6wxcyo2qrSoJpGRes6S38x7T/view?usp=sharing]
+![Home](https://drive.google.com/file/d/1N-IvQGSj6wxcyo2qrSoJpGRes6S38x7T/view?usp=sharing)
 ### 2:
 - Add special secure to dashboard page Extra vefiy the user as Admin via cookies session
 - Build a Appoinment page form and route to push to DB.
