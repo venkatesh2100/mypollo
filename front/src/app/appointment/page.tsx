@@ -7,7 +7,6 @@ import "react-toastify/dist/ReactToastify.css";
 import PayNow from "@/components/paynow";
 export default function AppointmentForm() {
   const [showPayment, setShowPayment] = useState(false);
-  const [bookingId, setBookingId] = useState(null);
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -47,7 +46,6 @@ export default function AppointmentForm() {
       if (res.ok) {
         // toast.success("Appointment booked successfully!");
         setShowPayment(true);
-        setBookingId(data.id);
 
         setForm({
           name: "",

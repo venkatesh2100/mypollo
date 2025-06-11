@@ -1,4 +1,4 @@
-//HACK: Sorry I Asked Deepseek to get Section[LAMO I'm getting Late and I don't wanna waste my time in Useless tweaking of frontend]
+//HACK: Sorry I Used Precomponets HERE [LAMO I'm getting Late and I don't wanna waste my time in Useless tweaking of frontend]
 import { FiMail, FiPhone, FiMapPin } from 'react-icons/fi';
 
 export default function ContactPage() {

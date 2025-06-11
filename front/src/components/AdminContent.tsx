@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react';
 import { FaSpinner } from "react-icons/fa";
 //HACK: This File includes All the Content I mean NOof Appointments etc
+//HACK I love this Part get Lots of Info from DB
 export default function AdminContent() {
   const [stats, setStats] = useState({
     paidUsers: 0,

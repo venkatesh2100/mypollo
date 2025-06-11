@@ -1,6 +1,6 @@
 
 import jwt from "jsonwebtoken";
-
+//MIDDware
 export function verifyAdmin(req, res, next) {
   const token = req.cookies.token;
   if (!token) return res.status(401).json({ message: "Un Auth User" });

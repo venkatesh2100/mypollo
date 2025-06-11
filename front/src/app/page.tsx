@@ -4,7 +4,8 @@ import Navbar from "@/components/Navbar"
 import ContactPage from "@/components/rest";
 import Service from "@/components/services"
 import { useRouter } from "next/navigation";
-
+//FIXME: Currently using Empty sapce between Home conent and Contact. 
+//HACK: Almost perfect Home Services and Buttons working.
 export default function Home() {
   const router = useRouter();
   return (

@@ -16,7 +16,7 @@ interface Appointment {
   review?: string;
   paid: string;
 }
-
+//HACK: Fetching the Appointments Details for Admin [Includes Update]
 export default function AdminAppointments() {
   const [appointments, setAppointments] = useState<Appointment[]>([]);
   const [loading, setLoading] = useState(true);

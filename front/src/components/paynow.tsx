@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import toast from 'react-hot-toast';
-
+//HACK: Dummy Payment
 const PayNow = ({ onClose, onPaymentSuccess }) => {
   const [isProcessing, setIsProcessing] = useState(false);
 
@@ -12,7 +12,7 @@ const PayNow = ({ onClose, onPaymentSuccess }) => {
 
       await new Promise(resolve => setTimeout(resolve, 1500));
 
-      toast.success("Payment of $500 received successfully!");
+      toast.success("Payment of 500 received successfully!");
       onPaymentSuccess();
       onClose();
     } catch (error) {
