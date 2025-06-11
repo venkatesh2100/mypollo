@@ -1,7 +1,7 @@
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { FiMenu, FiX } from 'react-icons/fi';
-
+//HACK: Clean Mobile Hamburger with Bg-Blut back drop
 export default function Hamburger() {
   const [isOpen, setIsOpen] = useState(false);
   const router = useRouter();
@@ -16,13 +16,13 @@ export default function Hamburger() {
       </button>
 
       {isOpen && (
-        <div className="fixed inset-0 z-50 overflow-hidden">
+        <div className="fixed inset-0 z-50 overflow-hidden w-full">
           <div
-            className="absolute inset-0 bg-black bg-opacity-50"
+            className="absolute inset-0 backdrop-blur-sm"
             onClick={() => setIsOpen(false)}
           ></div>
 
-          <div className="absolute inset-y-0 right-0 max-w-xs w-full bg-white shadow-xl">
+          <div className="absolute  max-w-xs w-full bg-white shadow-xl">
             <div className="flex items-center justify-between p-4 border-b">
               <h2 className="text-lg font-medium">Services</h2>
               <button

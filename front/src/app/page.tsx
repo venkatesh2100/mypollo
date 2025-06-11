@@ -12,7 +12,7 @@ export default function Home() {
       <Navbar />
       <Service />
       <div className="flex flex-col lg:flex-row items-center justify-center sm:h-[90vh] p-4 lg:p-8 bg-gray-50">
-        <div className="flex flex-col items-center lg:items-start text-center lg:text-left p-4 lg:p-30  w-full lg:w-1/2">
+        <div className="flex flex-col items-center lg:items-start text-center lg:text-left p-4 lg:py-35  lg:pl-30 w-full lg:w-1/2">
           <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-gray-900 leading-tight mb-4 rounded-lg">
             Find a Doctor
           </div>
@@ -32,13 +32,14 @@ export default function Home() {
 
         <div className=" p-2 lg:p-4 w-full lg:w-1/2 flex justify-center items-center">
           <Image
-            src='/doctor.png'
+            src='/fdoctor.png'
             alt='Discount logo'
-            width={980}
-            height={900}
+            width={580}
+            height={420}
           />
         </div>
       </div>
+      <div className=" bg-gray-100 h-[90vh]"></div>
       <ContactPage />
       <footer id="footer" />
     </div>
