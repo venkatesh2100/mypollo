@@ -34,6 +34,6 @@
 
 
 ![mobile](front/public/mobile.png)
-
+![mobile](front/public/admin.png)
 
 congrats 👷🏼‍♂️🎉
