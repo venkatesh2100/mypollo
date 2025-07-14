@@ -5,9 +5,9 @@
 <!-- - Feel Free to give a Star. -->
 
 ### 1:
-- updated the Schema for model Admin.
-- Fixed the Login system using Old Jwt approch.
-- desinged Login page.
+<!-- - updated the Schema for model Admin. -->
+<!-- - Fixed the Login system using Old Jwt approch. -->
+<!-- - desinged Login page. -->
 ![Home](front/public/home.png)
 ### 2:
 - Add special secure to dashboard page Extra vefiy the user as Admin via cookies session
